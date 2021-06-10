@@ -1,2 +1,2 @@
-web: gunicorn core.wsgi
+web: gunicorn book_store.wsgi
 
