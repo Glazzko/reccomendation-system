@@ -3,6 +3,9 @@ import os
 from datetime import timedelta
 from decouple import config, Csv
 
+r = redis.from_url(os.environ.get("REDIS_URL"))
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -117,7 +120,7 @@ DJANGO_REDIS_CONNECTION_FACTORY = "core.redis.ConnectionFactory"
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://rekomendacija.herokuapp.com/0",
+        "LOCATION": os.environ.get('REDIS_URL'),
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
             "REDIS_CLIENT_CLASS": "redis.client.StrictRedis",
