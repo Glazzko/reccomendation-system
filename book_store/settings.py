@@ -1,10 +1,10 @@
 import django_heroku
 import os
-from urllib.parse import urlparse
+import urllib.parse
 from datetime import timedelta
 from decouple import config, Csv
 
-redis_url = urlparse.urlparse(os.environ.get(
+redis_url = urllib.parse.urllib.parse(os.environ.get(
     'REDISTOGO_URL', 'redis://localhost:6959'))
 
 
