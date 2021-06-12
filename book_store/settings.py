@@ -1,11 +1,11 @@
 import django_heroku
 import os
-import redis
+from urllib.parse import urlparse
 from datetime import timedelta
 from decouple import config, Csv
 
-
-r = redis.from_url(os.environ.get("REDIS_URL"))
+redis_url = urlparse.urlparse(os.environ.get(
+    'REDISTOGO_URL', 'redis://localhost:6959'))
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -122,7 +122,7 @@ DJANGO_REDIS_CONNECTION_FACTORY = "core.redis.ConnectionFactory"
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": os.environ.get('REDIS_URL'),
+        "LOCATION": '%s:%s' % (redis_url.hostname, redis_url.port),
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
             "REDIS_CLIENT_CLASS": "redis.client.StrictRedis",
