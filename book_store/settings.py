@@ -117,7 +117,7 @@ DJANGO_REDIS_CONNECTION_FACTORY = "core.redis.ConnectionFactory"
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": os.environ.get('REDIS_URL'),
+        "LOCATION": "redis://:p74aa0bc9815d4f0441caef13fc776c3502fa54b6bf184ce3033738fc1915f7e4@ec2-34-254-104-245.eu-west-1.compute.amazonaws.com:11210",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
             "REDIS_CLIENT_CLASS": "redis.client.StrictRedis",
