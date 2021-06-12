@@ -1,7 +1,9 @@
 import django_heroku
 import os
+import redis
 from datetime import timedelta
 from decouple import config, Csv
+
 
 r = redis.from_url(os.environ.get("REDIS_URL"))
 
