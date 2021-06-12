@@ -3,9 +3,6 @@ import os
 from datetime import timedelta
 from decouple import config, Csv
 
-
-redis_url = os.environ.get('REDISTOGO_URL', 'http://localhost:6959')
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
