@@ -1,3 +1,4 @@
+import django_heroku
 import os
 from datetime import timedelta
 from decouple import config, Csv
@@ -105,10 +106,10 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": 'Books',
-        "USER": 'postgres',
+        "USER": 'rimasjuz',
         "PASSWORD": 'asawesome2020',
-        "HOST": 'localhost',
-        "PORT": '5433',
+        "HOST": 'database-1.c5b3lywmccow.eu-central-1.rds.amazonaws.com',
+        "PORT": '5432',
     }
 }
 
@@ -164,5 +165,4 @@ STATIC_ROOT = "/static/"
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media")
 
-import django_heroku
 django_heroku.settings(locals())
